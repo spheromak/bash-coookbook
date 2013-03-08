@@ -38,6 +38,8 @@ cookbook_file "/etc/skel/.bash_logout" do
 end
 
 if node[:platform_family] == "debian"
+  package "curl"
+
   # we touch bash_profile for root so that we ignore the ubuntu bashrc placed there
   # by default
   file "/root/.bash_profile" do
